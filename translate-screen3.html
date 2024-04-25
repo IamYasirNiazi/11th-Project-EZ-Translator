@@ -117,6 +117,13 @@
               <div class="language">
                 <span>中文</span>
               </div>
+              <div class="send">
+                <img
+                  src="/images/send.png"
+                  class="img-fluid"
+                  alt="send button"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -129,22 +136,39 @@
                 <div class="fill"></div>
               </div>
               <div class="mic">
-                <img src="/images/mic.png" class="img-fluid" alt="Mic" />
+                <img
+                  src="/images/mic.png"
+                  class="img-fluid"
+                  alt="Mic"
+                  id="mic"
+                  onclick="voiceBtnFunc()"
+                />
+                <img
+                  src="/images/stop-mic.png"
+                  class="img-fluid"
+                  alt="Mic"
+                  id="stop-mic"
+                  onclick="voiceBtnFunc()"
+                />
               </div>
               <div class="setting">
                 <img
                   src="/images/qr-scanner.png"
                   class="img-fluid"
                   alt="Qr Scanner"
-                  data-bs-toggle="modal"
-                  data-bs-target="#qrCodeScanner"
+                  onclick="qrCodeScannerFunc()"
                 />
                 <img
                   src="/images/setting.png"
                   class="img-fluid"
                   alt="Setting"
-                  data-bs-toggle="modal"
-                  data-bs-target="#selectVoiceOver"
+                  onclick="selectVoiceOverFunc()"
+                />
+                <img
+                  src="/images/exit.png"
+                  class="img-fluid"
+                  alt="exit"
+                  id="exit"
                 />
               </div>
             </div>
@@ -223,6 +247,27 @@
 
         playBtn.classList.toggle("hide");
         stopBtn.classList.toggle("display");
+      }
+    </script>
+
+    <script>
+      function voiceBtnFunc() {
+        const voicePlay = document.getElementById("mic");
+        const voiceStop = document.getElementById("stop-mic");
+
+        voicePlay.classList.toggle("hide");
+        voiceStop.classList.toggle("display");
+      }
+    </script>
+
+    <script>
+      function qrCodeScannerFunc() {
+        $("#qrCodeScanner").modal("show");
+      }
+    </script>
+    <script>
+      function selectVoiceOverFunc() {
+        $("#selectVoiceOver").modal("show");
       }
     </script>
   </body>
